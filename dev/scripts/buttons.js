@@ -1,10 +1,8 @@
 // Has to be at the top of every JS file
 import React from 'react';
 
-// const x = document.getElementById("clip");
-// <audio id="clip">
-//     <source src="./dev/audio/journal.mp3" type="audio/mpeg" />
-// </audio>
+
+
 
 // Component
 class Buttons extends React.Component {
@@ -16,16 +14,16 @@ class Buttons extends React.Component {
     // Click event
     handleClick = () => {
         this.setState({play: !this.state.play});
-        console.log("clicked button");
-        x.play();
     }
 
-   
-
+// Here's a note
     render() {
         return (
             <div className="audioTriggers">
                 <button type="button" onClick={this.handleClick}>{this.props.tagline}<p>Ambient</p></button>
+                <audio id="clip">
+                    <source src="./dev/audio/journal.mp3" type="audio/mpeg" />
+                </audio>
                 <button type="submit" onClick={this.handleClick}>{this.props.tagline}<p>Forest</p></button>
                 <button type="submit" onClick={this.handleClick}>Street Noise</button>
                 <button type="submit" onClick={this.handleClick}>Waves</button>
