@@ -15,14 +15,14 @@ class Buttons extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     // Click event
-    handleClick(e) {
-        // prevent buttons from refreshing the page
-        e.preventDefault();
+    handleClick(clipID, refs) {
+
         this.setState({
             // ! just means the opposite of the initial state
             play: !this.state.play
         });
-        this.forest.classList.toggle("active");
+        refs.classList.toggle("active");
+        const audio = document.getElementById(clipID);
         this.state.play ? audio.pause() : audio.play();
     }
 
@@ -30,12 +30,30 @@ class Buttons extends React.Component {
     render() {
         return (
             <div className="audioTriggers">
-                <button ref={ref => this.forest = ref} className="active" type="submit" onClick={this.handleClick}>{this.props.tagline}<p>Ambient</p></button>
+                {/* Ambient Sounds */}
+                <button
+                    ref={ref => this.streetNoise = ref}
+                    className="active" type="button"
+                    onClick={() => this.handleClick("clip", this.streetNoise)}>
+                    Street Noise
+                </button>
                 <audio id="clip">
-                    <source src="./dev/audio/journal.mp3" type="audio/mpeg" />
+                    <source src="./dev/audio/waves-lapping.mp3" type="audio/mpeg" />
                 </audio>
-                <button ref={ref => this.forest = ref} className="active" type="submit" onClick={this.handleClick}>{this.props.tagline}<p>Forest</p></button>
-                <button ref={ref => this.forest = ref} className="active" type="submit" onClick={this.handleClick}>Street Noise</button>
+
+                {/* Forest Sounds */}
+                <button
+                    ref={ref => this.forest = ref} className="active" type="button"
+                    onClick={() => this.handleClick("clip2", this.forest)}>
+                    {this.props.tagline}
+                    <p>Forest</p>
+                </button>
+                <audio id="clip2">
+                    <source src="./dev/audio/crickets.mp3" type="audio/mpeg" />
+                </audio>
+
+                {/* Forest Sounds */}
+                {/* <button ref={ref => this.streetNoise = ref} className="active" type="submit" onClick={() => this.handleClick("clip2", this.streetNoise)}>Street Noise</button> */}
                 <button className="active" type="submit" onClick={this.handleClick}>Waves</button>
                 <button className="active" type="submit" onClick={this.handleClick}>Wind</button>
                 <button className="active" type="submit" onClick={this.handleClick}>Rain</button>
