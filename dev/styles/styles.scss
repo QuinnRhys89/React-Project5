@@ -37,6 +37,12 @@ button{
     }
 }
 
+// Highlighted buttons
+.active{
+    color: goldenrod;
+    border: 2px solid goldenrod;
+}
+
 form{
     align-self: flex-end;
     border: 2px solid goldenrod;
