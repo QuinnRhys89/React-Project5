@@ -11,16 +11,28 @@ class Buttons extends React.Component {
         super();
         this.state = {
             play: false,
-            // selectedSounds: "clip,clip1,clip2 "
-            // array with all the sounds
             sounds: {
                 ambient: false,
-                forest: false
+                forest: false,
+                waves: false,
+                windchimes: false,
+                rain: false,
+                breeze: false,
+                drone: false,
+                drums: false,
+                synth: false,
+                fire: false,
+                catpurr: false, 
+                shower: false,
+                fan: false
+
+
             }
         };
         // bind the method because we are using the "this" word on the buttons
         this.handleClick = this.handleClick.bind(this);
     }
+
     componentDidMount() {
         var dbRef = firebase.database().ref(`soundclipSave/`);
         dbRef.on('value',(snapshot) => {
@@ -51,15 +63,6 @@ class Buttons extends React.Component {
         refs.classList.toggle("active");
         var dbRef = firebase.database().ref(`soundclipSave/`);
         dbRef.set(sounds);
-       
-        // userProfile: {
-        //     sound: {
-        //         fire: true,
-        //         drone: false,
-        //         ...
-        //     }
-        // }
-    
     }
 
     render() {
@@ -88,73 +91,70 @@ class Buttons extends React.Component {
                     <source src="./dev/audio/crickets.mp3" type="audio/mpeg" />
                 </audio>
 
-                {/* Forest Sounds */}
-                {/* <button ref={ref => this.streetNoise = ref} className="active" type="submit" onClick={() => this.handleClick("clip2", this.streetNoise)}>Street Noise</button> */}
-
                 {/* Waves */}
                 <button 
                     ref={ref => this.waves = ref} type="submit" 
-                    onClick={() => this.handleClick("clip3", this.waves)}>Waves
+                    onClick={() => this.handleClick("waves", this.waves)}>Waves
                 </button>
 
-                <audio id="clip3" loop>
+                <audio id="waves" loop>
                     <source src="./dev/audio/waves-lapping.mp3" type="audio/mpeg" />
                 </audio>
 
                 {/* Wind Chimes */}
                 <button 
                     ref={ref => this.windchimes = ref} type="submit" 
-                    onClick={() => this.handleClick("clip4", this.windchimes)}>Wind Chimes
+                    onClick={() => this.handleClick("windchimes", this.windchimes)}>Wind Chimes
                 </button>
 
-                <audio id="clip4" loop>
+                <audio id="windchimes" loop>
                     <source src="./dev/audio/wind-chimes.mp3" type="audio/mpeg" />
                 </audio>
 
                 {/* Rain */}
                 <button
                     ref={ref => this.rain = ref} type="submit"
-                    onClick={() => this.handleClick("clip5", this.rain)}>Rain
+                    onClick={() => this.handleClick("rain", this.rain)}>Rain
                 </button>
 
-                <audio id="clip5" loop>
+                <audio id="rain" loop>
                     <source src="./dev/audio/rain.mp3" type="audio/mpeg" />
                 </audio>
 
                 {/* Breeze */}
                 <button
-                    ref={ref => this.breeze = ref} type="submit" onClick={() => this.handleClick("clip6", this.breeze)}>Tropical Breeze
+                    ref={ref => this.breeze = ref} type="submit" onClick={() => this.handleClick("breeze", this.breeze)}>Tropical Breeze
                 </button>
 
-                <audio id="clip6" loop>
+                <audio id="breeze" loop>
                     <source src="./dev/audio/breeze.mp3" type="audio/mpeg" />
                 </audio>
 
                 {/* Drone */}
                 <button 
-                    ref={ref => this.drone = ref} type="submit" onClick={() => this.handleClick("clip7", this.drone)}>Drone
+                    ref={ref => this.drone = ref} type="submit" onClick={() => this.handleClick("drone", this.drone)}>Drone
                 </button>
 
-                <audio id="clip7" loop>
+                <audio id="drone" loop>
                     <source src="./dev/audio/drone.mp3" type="audio/mpeg" />
                 </audio>
 
                 {/* Taiko Drums */}
 
                 <button
-                    ref={ref => this.drums = ref} type="submit" onClick={() => this.handleClick("clip8", this.drums)}>Taiko
+                    ref={ref => this.drums = ref} type="submit" onClick={() => this.handleClick("drums", this.drums)}>Taiko
                 </button>
 
-                <audio id="clip8" loop>
+                <audio id="drums" loop>
                     <source src="./dev/audio/taiko.mp3" type="audio/mpeg" />
                 </audio>
 
                 {/* Synthesizer */}
                 <button
-                    ref={ref => this.synth = ref} type="submit" onClick={() => this.handleClick("clip11", this.synth)}>Synthesizer
+                    ref={ref => this.synth = ref} type="submit" onClick={() => this.handleClick("synth", this.synth)}>Synthesizer
                 </button>
 
-                <audio id="clip11" loop>
+                <audio id="synth" loop>
                     <source src="./dev/audio/synthesizer.mp3" type="audio/mpeg" />
                 </audio>
 
@@ -164,10 +164,10 @@ class Buttons extends React.Component {
                 {/* Fire Crackling */}
 
                 <button
-                    ref={ref => this.fire = ref} type="submit" onClick={() => this.handleClick("clip12", this.fire)}>Fire Crackling
+                    ref={ref => this.fire = ref} type="submit" onClick={() => this.handleClick("fire", this.fire)}>Fire Crackling
                 </button>
 
-                <audio id="clip12" loop>
+                <audio id="fire" loop>
                     <source src="./dev/audio/fire-crackle.mp3" type="audio/mpeg" />
                 </audio>
 
@@ -176,28 +176,28 @@ class Buttons extends React.Component {
 
                 {/* Cat Purrs */}
                 <button
-                    ref={ref => this.catpurr = ref} type="submit" onClick={() => this.handleClick("clip14", this.catpurr)}>Cat Purring
+                    ref={ref => this.catpurr = ref} type="submit" onClick={() => this.handleClick("catpurr", this.catpurr)}>Cat Purring
                 </button>
 
-                <audio id="clip14" loop>
+                <audio id="catpurr" loop>
                     <source src="./dev/audio/animal_cat_purr.mp3" type="audio/mpeg" />
                 </audio>
 
                 {/* Shower */}
                 <button
-                    ref={ref => this.shower = ref} type="submit" onClick={() => this.handleClick("clip15", this.shower)}>Shower Running
+                    ref={ref => this.shower = ref} type="submit" onClick={() => this.handleClick("shower", this.shower)}>Shower Running
                 </button>
 
-                <audio id="clip15" loop >
+                <audio id="shower" loop >
                     <source src="./dev/audio/shower.mp3" type="audio/mpeg" />
                 </audio>
 
                 {/* Ceiling Fan*/}
                 <button
-                    ref={ref => this.fan= ref} type="submit" onClick={() => this.handleClick("clip16", this.fan)}>Ceiling Fan
+                    ref={ref => this.fan= ref} type="submit" onClick={() => this.handleClick("fan", this.fan)}>Ceiling Fan
                 </button>
 
-                <audio id="clip16" loop>
+                <audio id="fan" loop>
                     <source src="./dev/audio/fan.mp3" type="audio/mpeg" />
                 </audio>
             </div>
