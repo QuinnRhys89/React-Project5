@@ -9,9 +9,9 @@ class App extends React.Component {
         return (
             // Must only have one parent element
             <div className="container">
-                <Buttons tagline="press me" />
-                <Logo />
-                <Form />
+                    <Buttons tagline="press me" />
+                    <Logo />
+                    <Form />
             </div>
         )
     }
