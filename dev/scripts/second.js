@@ -10,7 +10,7 @@ class App extends React.Component {
             // Must only have one parent element
             <div className="container">
                     <Logo />
-                    <Buttons tagline="press me" />
+                    <Buttons />
                     <Form />
             </div>
         )
