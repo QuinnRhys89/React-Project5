@@ -87,6 +87,12 @@ button{
     
 }
 
+.sub{
+    padding: 0;
+    width: 80px;
+    height: 30px;
+}
+
 // Volume Sliders
 input[type=range]{
     -webkit-appearance: none;
@@ -136,26 +142,12 @@ form{
 }
 
 
-#bk-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-}
-
-// Responsive
+// Responsive Styling
 
 @media (max-width: 940px) {
     #app{
         height: auto;
     }
-
-}
-
-
-
-@media (max-width: 940px) {
 
 }
 

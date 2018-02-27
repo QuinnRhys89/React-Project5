@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './second.js';
 import Buttons from './buttons.js';
+import Logo from './logo.js';
+import Form from './form.js';
+
 
 
 // Initialize Firebase
@@ -15,6 +17,19 @@ var config = {
 };
 
 firebase.initializeApp(config);
+
+class App extends React.Component {
+    render() {
+        return (
+            // Must only have one parent element
+            <div className="container">
+                <Logo />
+                <Buttons />
+                <Form />
+            </div>
+        )
+    }
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
 
