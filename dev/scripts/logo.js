@@ -6,7 +6,8 @@ class Logo extends React.Component {
     render() {
         return (
            <div className="logo-container">
-                <h1>White Noise Machine</h1>
+                <h1>Soundscape</h1>
+                <p>Click on any Combination of Sounds below to create your own soundscape</p>
            </div>
         )
     }

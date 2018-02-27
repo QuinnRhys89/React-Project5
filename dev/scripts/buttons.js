@@ -5,7 +5,7 @@ const audio = new Audio("./dev/audio/waves-lapping.mp3");
 // const volumeSlider = document.getElementById("volumeslider");
 
 
-// Component
+// Main Button Component | Initial State
 class Buttons extends React.Component {
     constructor() {
         super();
@@ -25,14 +25,33 @@ class Buttons extends React.Component {
                 catpurr: false, 
                 shower: false,
                 fan: false
-
+            },
+            volumes: {
+                ambientVolume: 1,
+                forestVolume: 1,
+                wavesVolume: 1,
+                windchimesVolume: 1,
+                rainVolume: 1,
+                breezeVolume: 1,
+                droneVolume: 1,
+                drumsVolume: 1,
+                synthVolume: 1,
+                fireVolume: 1,
+                catpurrVolume: 1,
+                showerVolume: 1,
+                fanVolume: 1,
+                singingBowlVolume: 1,
+                bongosVolume: 1,
+                birdsVolume: 1,
 
             }
         };
         // bind the method because we are using the "this" word on the buttons
         this.handleClick = this.handleClick.bind(this);
+        this.setVolume = this.setVolume.bind(this);
     }
 
+    // Component Did Mount | Log audio to Firebase
     componentDidMount() {
         var dbRef = firebase.database().ref(`soundclipSave/`);
         dbRef.on('value',(snapshot) => {
@@ -49,6 +68,8 @@ class Buttons extends React.Component {
             }
         });
     }
+
+
     // Click event
     handleClick(clipID, refs) {
         const sounds = Object.assign({},this.state.sounds);
@@ -58,11 +79,39 @@ class Buttons extends React.Component {
             play: !this.state.play,
             sounds: sounds
         });
-        const audio = document.getElementById(clipID);
+
+
+        let audio = document.getElementById(clipID);
+        console.log("ClipId :" + clipID);
+        console.log(`VolumeId : ${clipID}Volume`);
+        console.log(this.state.volumes[`${clipID}Volume`]);
+        console.log("Audio volume: " + audio.volume);
         sounds[clipID] === true ? audio.play() : audio.pause();
+        console.log("Audio volume: " + audio.volume);
+        
         refs.classList.toggle("active");
         var dbRef = firebase.database().ref(`soundclipSave/`);
         dbRef.set(sounds);
+        audio.volume = parseFloat(this.state.volumes[`${clipID}Volume`]);
+    }
+
+    // Volume Function
+
+    setVolume(e){
+        // console.log(e.target.id);
+        // console.log(e.target.value);
+        let _volumes = this.state.volumes;
+        _volumes[e.target.id] = e.target.value;
+        // let audio = document.getElementById(clipID)
+        console.log(_volumes)
+        console.log(e.target.id,e.target.value)
+        let audio = document.getElementById(e.target.id.replace('Volume',''));
+        audio.volume = e.target.value;
+        var dbRef = firebase.database().ref(`volumeSave/`);
+        dbRef.set(Volumes);
+        this.setState({
+            volumes : _volumes
+        })
     }
 
     render() {
@@ -70,136 +119,206 @@ class Buttons extends React.Component {
             <div className="audioTriggers">
 
                 {/* Ambient Sounds */}
-             
-                <button
-                    ref={ref => this.ambient = ref} type="button"
-                    onClick={() => this.handleClick("ambient", this.ambient)}>
-                    Ambient Noise
-                </button>
-                {/* <input id="volumeslider" type="range" min="0" max="100" value="100" step="1"/> */}
-                <audio id="ambient" loop>
-                    <source src="./dev/audio/ambient.mp3" type="audio/mpeg" />
-                </audio>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.ambient = ref} type="button"
+                        onClick={() => this.handleClick("ambient", this.ambient)}>
+                        Ambient Noise
+                    </button>
+
+                    <input id="ambientVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="ambient" loop>
+                        <source src="./dev/audio/ambient.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Forest Sounds */}
-                <button
-                    ref={ref => this.forest = ref} type="button"
-                    onClick={() => this.handleClick("forest", this.forest)}>
-                    {/* {this.props.tagline} */}Forest
-                </button>
-                <audio id="forest" loop>
-                    <source src="./dev/audio/crickets.mp3" type="audio/mpeg" />
-                </audio>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.forest = ref} type="button"
+                        onClick={() => this.handleClick("forest", this.forest)}>
+                        {/* {this.props.tagline} */}Forest
+                    </button>
+                    <input id="forestVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="forest" loop>
+                        <source src="./dev/audio/crickets.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Waves */}
-                <button 
-                    ref={ref => this.waves = ref} type="submit" 
-                    onClick={() => this.handleClick("waves", this.waves)}>Waves
-                </button>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.waves = ref} type="submit"
+                        onClick={() => this.handleClick("waves", this.waves)}>Waves
+                    </button>
+                    <input id="wavesVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
 
-                <audio id="waves" loop>
-                    <source src="./dev/audio/waves-lapping.mp3" type="audio/mpeg" />
-                </audio>
+                    <audio id="waves" loop>
+                        <source src="./dev/audio/waves-lapping.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Wind Chimes */}
-                <button 
-                    ref={ref => this.windchimes = ref} type="submit" 
-                    onClick={() => this.handleClick("windchimes", this.windchimes)}>Wind Chimes
-                </button>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.windchimes = ref} type="submit"
+                        onClick={() => this.handleClick("windchimes", this.windchimes)}>Wind Chimes
+                    </button>
+                    <input id="windchimesVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
 
-                <audio id="windchimes" loop>
-                    <source src="./dev/audio/wind-chimes.mp3" type="audio/mpeg" />
-                </audio>
+                    <audio id="windchimes" loop>
+                        <source src="./dev/audio/wind-chimes.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Rain */}
-                <button
-                    ref={ref => this.rain = ref} type="submit"
-                    onClick={() => this.handleClick("rain", this.rain)}>Rain
-                </button>
-
-                <audio id="rain" loop>
-                    <source src="./dev/audio/rain.mp3" type="audio/mpeg" />
-                </audio>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.rain = ref} type="submit"
+                        onClick={() => this.handleClick("rain", this.rain)}>Rain
+                    </button>
+                    <input id="rainVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="rain" loop>
+                        <source src="./dev/audio/rain.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Breeze */}
-                <button
-                    ref={ref => this.breeze = ref} type="submit" onClick={() => this.handleClick("breeze", this.breeze)}>Tropical Breeze
-                </button>
-
-                <audio id="breeze" loop>
-                    <source src="./dev/audio/breeze.mp3" type="audio/mpeg" />
-                </audio>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.breeze = ref} type="submit" onClick={() => this.handleClick("breeze", this.breeze)}>Tropical Breeze
+                    </button>
+                    <input id="breezeVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="breeze" loop>
+                        <source src="./dev/audio/breeze.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Drone */}
-                <button 
-                    ref={ref => this.drone = ref} type="submit" onClick={() => this.handleClick("drone", this.drone)}>Drone
-                </button>
-
-                <audio id="drone" loop>
-                    <source src="./dev/audio/drone.mp3" type="audio/mpeg" />
-                </audio>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.drone = ref} type="submit" onClick={() => this.handleClick("drone", this.drone)}>Drone
+                    </button>
+                    <input id="droneVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="drone" loop>
+                        <source src="./dev/audio/drone.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Taiko Drums */}
-
-                <button
-                    ref={ref => this.drums = ref} type="submit" onClick={() => this.handleClick("drums", this.drums)}>Taiko
-                </button>
-
-                <audio id="drums" loop>
-                    <source src="./dev/audio/taiko.mp3" type="audio/mpeg" />
-                </audio>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.drums = ref} type="submit" onClick={() => this.handleClick("drums", this.drums)}>Taiko Drums
+                    </button>
+                    <input id="drumsVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="drums" loop>
+                        <source src="./dev/audio/taiko.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Synthesizer */}
-                <button
-                    ref={ref => this.synth = ref} type="submit" onClick={() => this.handleClick("synth", this.synth)}>Synthesizer
-                </button>
-
-                <audio id="synth" loop>
-                    <source src="./dev/audio/synthesizer.mp3" type="audio/mpeg" />
-                </audio>
-
-                {/* Crickets */}
-                <button type="submit" onClick={this.handleClick}>Crickets</button>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.synth = ref} type="submit" onClick={() => this.handleClick("synth", this.synth)}>Synthesizer
+                    </button>
+                    <input id="synthVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="synth" loop>
+                        <source src="./dev/audio/synthesizer.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Fire Crackling */}
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.fire = ref} type="submit" onClick={() => this.handleClick("fire", this.fire)}>Fire Crackling
+                    </button>
+                    <input id="fireVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="fire" loop>
+                        <source src="./dev/audio/fire-crackle.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
-                <button
-                    ref={ref => this.fire = ref} type="submit" onClick={() => this.handleClick("fire", this.fire)}>Fire Crackling
-                </button>
-
-                <audio id="fire" loop>
-                    <source src="./dev/audio/fire-crackle.mp3" type="audio/mpeg" />
-                </audio>
-
-                {/* Muffled Voices */}
-                <button type="submit" onClick={this.handleClick}>Muffled voices</button>
+                {/* Singing Bowl */}
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.singingBowl = ref} type="submit" onClick={() => this.handleClick("singingBowl", this.singingBowl)}>Singing Bowl
+                    </button>
+                    <input id="singingBowlVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="singingBowl" loop>
+                        <source src="./dev/audio/singingbowl.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Cat Purrs */}
-                <button
-                    ref={ref => this.catpurr = ref} type="submit" onClick={() => this.handleClick("catpurr", this.catpurr)}>Cat Purring
-                </button>
-
-                <audio id="catpurr" loop>
-                    <source src="./dev/audio/animal_cat_purr.mp3" type="audio/mpeg" />
-                </audio>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.catpurr = ref} type="submit" onClick={() => this.handleClick("catpurr", this.catpurr)}>Cat Purring
+                    </button>
+                    <input id="catpurrVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="catpurr" loop>
+                        <source src="./dev/audio/animal_cat_purr.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Shower */}
-                <button
-                    ref={ref => this.shower = ref} type="submit" onClick={() => this.handleClick("shower", this.shower)}>Shower Running
-                </button>
-
-                <audio id="shower" loop >
-                    <source src="./dev/audio/shower.mp3" type="audio/mpeg" />
-                </audio>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.shower = ref} type="submit" onClick={() => this.handleClick("shower", this.shower)}>Shower Running
+                    </button>
+                    <input id="showerVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="shower" loop >
+                        <source src="./dev/audio/shower.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
                 {/* Ceiling Fan*/}
-                <button
-                    ref={ref => this.fan= ref} type="submit" onClick={() => this.handleClick("fan", this.fan)}>Ceiling Fan
-                </button>
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.fan = ref} type="submit" onClick={() => this.handleClick("fan", this.fan)}>Ceiling Fan
+                    </button>
+                    <input id="fanVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="fan" loop>
+                        <source src="./dev/audio/fan.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
 
-                <audio id="fan" loop>
-                    <source src="./dev/audio/fan.mp3" type="audio/mpeg" />
-                </audio>
+                {/* Bongos */}
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.bongos = ref} type="submit" onClick={() => this.handleClick("bongos", this.bongos)}>Bongos
+                    </button>
+                    <input id="bongosVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="bongos" loop>
+                        <source src="./dev/audio/bongos.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
+
+                {/* Birds */}
+                <div className="button-container">
+                    {/* Button */}
+                    <button
+                        ref={ref => this.birds = ref} type="submit" onClick={() => this.handleClick("birds", this.birds)}>Spring Birds
+                    </button>
+                    <input id="birdsVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
+                    <audio id="birds" loop>
+                        <source src="./dev/audio/birds.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
             </div>
         )
     }
