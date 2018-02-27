@@ -137,7 +137,7 @@ body {
   margin: 0 auto;
   font-size: 96.5%;
   font-family: 'Muli', sans-serif;
-  background-image: url("./public/photos/cork-wallet.png"); }
+  background-image: url("/public/photos/cork-wallet.png"); }
 
 #app {
   display: flex;
