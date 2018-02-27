@@ -1,8 +1,6 @@
-/// Has to be at the top of every JS file
 import React from 'react';
 
 const audio = new Audio("./public/audio/waves-lapping.mp3");
-// const volumeSlider = document.getElementById("volumeslider");
 
 
 // Main Button Component | Initial State

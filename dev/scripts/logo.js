@@ -1,4 +1,3 @@
-// Has to be at the top of every JS file
 import React from 'react';
 
 // Component
