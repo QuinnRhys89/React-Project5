@@ -7,7 +7,7 @@ class Form extends React.Component {
         return(
             <form action="" className="saveSoundscape">
                 <label htmlFor="">Name your soundscape:</label>
-                <input type="text" />
+                <input type="text" placeholder="type name here" />
             </form>
         )
     }

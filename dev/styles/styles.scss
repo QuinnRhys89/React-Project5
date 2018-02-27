@@ -10,16 +10,15 @@ body{
     margin: 0 auto;
     font-size: 96.5%;
     font-family: 'Muli', sans-serif;
+    background-image: url("/dev/photos/cork-wallet.png");
+
 }
 
 #app{
-    background-image: url("/dev/photos/cork-wallet.png");
-    height: 100vh;
-    padding: 100px 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid black;
+    padding-top: 40px;
 }
 
 .container{
@@ -28,7 +27,6 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // height: 100vh;
     max-width: 1280px;
     width: 90%;
     h1{
@@ -41,17 +39,15 @@ body{
         padding-bottom: 20px;
         border-bottom: 2px solid darkcyan;
     }
-    .tagline{
-        text-transform: uppercase;
-        font-size: 16px;
-        color: grey;
-        letter-spacing: 1px;
-        padding: 10px 0;
-        // border-top: 2px solid darkcyan;
-        // border-bottom: 2px solid darkcyan;
-    }
 }
 
+.tagline{
+    text-transform: uppercase;
+    font-size: 16px;
+    color: grey;
+    letter-spacing: 1px;
+    padding: 10px 0;
+}
 
 // Button Styles
 
@@ -73,7 +69,7 @@ button{
     border-radius: 10px 10px;
     text-transform: uppercase;
     font-size: 12px;
-    margin: 20px 0 10px 0;
+    margin: 20px 10px 10px 10px;
     box-shadow: 5px 5px;
     line-height: 20px;
     font-size: 14px;
@@ -107,7 +103,6 @@ input[type=range]{
   width: 60%;
   height: 4px;
   cursor: pointer;
-//   box-shadow: 1px 1px 1px darkcyan, 0px 0px 1px darkcyan;
   background: darkcyan;
   border-color: darkcyan;
 }
@@ -120,6 +115,7 @@ input[type=range]{
 
 form{
     align-self: flex-end;
+    padding-bottom: 40px;
     label{
         margin-right: 10px;
         text-transform: uppercase;
@@ -131,12 +127,106 @@ form{
         outline: none;
         border: none;
         border: 1px solid grey;
-        padding-bottom: 5px;
+        border-radius: 5px 5px;
         background: none;
         font-weight: 600;
-        color: grey;
+        color:grey;
         text-align: center;
     }
 }
 
 
+#bk-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+// Responsive
+
+@media (max-width: 940px) {
+    #app{
+        height: auto;
+    }
+
+}
+
+
+
+@media (max-width: 940px) {
+
+}
+
+
+@media (max-width: 768px) {
+    .tagline{
+        text-align: center;
+        font-size: 20px; 
+        line-height: 2rem;
+    }
+
+    .audioTriggers{
+        margin: 0;
+        padding-bottom: 50px;
+        border-bottom: 2px dashed grey;
+    }
+
+    .button-container{
+        width: 50%;
+        align-items: space-around;
+        button{
+            width: 80%;
+            margin-bottom: 40px;
+        }
+        input[type=range]{
+             width: 50%;
+        }
+    }
+
+    form{
+        align-self: center;
+        font-size: 20px;
+        margin-top: 50px;
+  
+        padding-top: 10px;
+        label{
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+@media (max-width: 480px) {
+    #app{
+        align-items: space-around;
+    }
+
+    h1{
+        margin: 0;
+    }
+
+    .tagline{
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .button-container{
+        width: 100%;
+        button{
+            width: 100%;
+            font-size: 20px;
+        }
+        input[type=range]{
+             width: 80%;
+             margin-bottom: 30px;
+        }
+    }
+
+    form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
