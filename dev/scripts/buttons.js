@@ -1,7 +1,7 @@
 /// Has to be at the top of every JS file
 import React from 'react';
 
-const audio = new Audio("./dev/audio/waves-lapping.mp3");
+const audio = new Audio("./public/audio/waves-lapping.mp3");
 // const volumeSlider = document.getElementById("volumeslider");
 
 
@@ -130,7 +130,7 @@ class Buttons extends React.Component {
                     <input id="ambientVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="ambient" loop>
-                        <source src="./dev/audio/ambient.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/ambient.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -145,7 +145,7 @@ class Buttons extends React.Component {
                     <input id="forestVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="forest" loop>
-                        <source src="./dev/audio/crickets.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/crickets.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -160,7 +160,7 @@ class Buttons extends React.Component {
                     <input id="wavesVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="waves" loop>
-                        <source src="./dev/audio/waves-lapping.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/waves-lapping.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -175,7 +175,7 @@ class Buttons extends React.Component {
                     <input id="windchimesVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="windchimes" loop>
-                        <source src="./dev/audio/wind-chimes.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/wind-chimes.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -190,7 +190,7 @@ class Buttons extends React.Component {
                     <input id="rainVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="rain" loop>
-                        <source src="./dev/audio/rain.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/rain.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -204,7 +204,7 @@ class Buttons extends React.Component {
                     <input id="breezeVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="breeze" loop>
-                        <source src="./dev/audio/breeze.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/breeze.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -218,7 +218,7 @@ class Buttons extends React.Component {
                     <input id="droneVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="drone" loop>
-                        <source src="./dev/audio/drone.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/drone.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -232,7 +232,7 @@ class Buttons extends React.Component {
                     <input id="drumsVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="drums" loop>
-                        <source src="./dev/audio/taiko.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/taiko.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -246,7 +246,7 @@ class Buttons extends React.Component {
                     <input id="synthVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="synth" loop>
-                        <source src="./dev/audio/synthesizer.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/synthesizer.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -260,7 +260,7 @@ class Buttons extends React.Component {
                     <input id="fireVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="fire" loop>
-                        <source src="./dev/audio/fire-crackle.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/fire-crackle.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -274,7 +274,7 @@ class Buttons extends React.Component {
                     <input id="singingBowlVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="singingBowl" loop>
-                        <source src="./dev/audio/singingbowl.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/singingbowl.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -288,7 +288,7 @@ class Buttons extends React.Component {
                     <input id="catpurrVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="catpurr" loop>
-                        <source src="./dev/audio/animal_cat_purr.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/animal_cat_purr.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -302,7 +302,7 @@ class Buttons extends React.Component {
                     <input id="showerVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="shower" loop >
-                        <source src="./dev/audio/shower.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/shower.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -316,7 +316,7 @@ class Buttons extends React.Component {
                     <input id="fanVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="fan" loop>
-                        <source src="./dev/audio/fan.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/fan.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -330,7 +330,7 @@ class Buttons extends React.Component {
                     <input id="bongosVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="bongos" loop>
-                        <source src="./dev/audio/bongos.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/bongos.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
 
@@ -344,7 +344,7 @@ class Buttons extends React.Component {
                     <input id="birdsVolume" type="range" min="0" max="1" step="0.1" onChange={this.setVolume} />
                     {/* Audio Source */}
                     <audio id="birds" loop>
-                        <source src="./dev/audio/birds.mp3" type="audio/mpeg" />
+                        <source src="./public/audio/birds.mp3" type="audio/mpeg" />
                     </audio>
                 </div>
             </div>
