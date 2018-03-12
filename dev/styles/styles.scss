@@ -10,14 +10,14 @@ body{
     margin: 0 auto;
     font-size: 96.5%;
     font-family: 'Muli', sans-serif;
-    background-image: url("../../public/photos/cork-wallet.png");
+    background-image: url("../../public/photos/topography.png");
 }
 
 #app{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding-top: 40px;
+    padding-bottom: 80px;
 }
 
 .container{
@@ -53,9 +53,8 @@ body{
 .audioTriggers{
     display: flex;
     flex-wrap: wrap;
-    margin-top: 22px; 
     justify-content: center;
-    margin: 100px 0 200px 0;
+    margin: 50px 0 200px 0;
     
 }
 
@@ -86,10 +85,21 @@ button{
     
 }
 
-.sub{
-    padding: 0;
-    width: 80px;
-    height: 30px;
+// Google Sign-In Button
+
+.emailButtonContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.emailButton{
+    border: 2px solid darkcyan;
+    background: darkcyan;
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    box-shadow: none;
 }
 
 // Volume Sliders
@@ -119,13 +129,22 @@ input[type=range]{
 }
 
 form{
-    align-self: flex-end;
-    padding-bottom: 40px;
+    border: 2px solid darkcyan;
+    border-radius: 5px 5px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    box-shadow: 5px 5px 10px;
+    align-items: center;
+
     label{
         margin-right: 10px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         color: darkcyan;
+        margin-bottom: 20px;
+        font-weight: 600;
     }
     input[type=text]{
         text-transform: uppercase;
@@ -137,6 +156,15 @@ form{
         font-weight: 600;
         color:grey;
         text-align: center;
+        padding: 15px 30px 15px 30px;
+        background: white;
+    }
+    .sub{
+        padding: 0;
+        width: 120px;
+        height: 100px;
+        height: 30px;
+
     }
 }
 

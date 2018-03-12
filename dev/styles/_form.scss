@@ -1,0 +1,21 @@
+form{
+    align-self: flex-end;
+    padding-bottom: 40px;
+    label{
+        margin-right: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: darkcyan;
+    }
+    input[type=text]{
+        text-transform: uppercase;
+        outline: none;
+        border: none;
+        border: 1px solid grey;
+        border-radius: 5px 5px;
+        background: none;
+        font-weight: 600;
+        color:grey;
+        text-align: center;
+    }
+}
