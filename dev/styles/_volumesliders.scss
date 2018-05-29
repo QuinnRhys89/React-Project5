@@ -1,0 +1,19 @@
+// Volume Sliders
+input[type=range]{
+    -webkit-appearance: none;
+    width: 40%;
+    margin: 12px 0;
+}
+
+input[type=range]:focus{
+   outline: none;
+}
+
+
+input[type=range]{
+  width: 60%;
+  height: 4px;
+  cursor: pointer;
+  background: $maincolor;
+  border-color: $maincolor;
+}

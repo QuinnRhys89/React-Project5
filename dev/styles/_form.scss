@@ -1,11 +1,22 @@
 form{
-    align-self: flex-end;
-    padding-bottom: 40px;
+    border: 2px solid $maincolor;
+    border-radius: 5px 5px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 200px;
+    box-shadow: 5px 5px 10px;
+    align-items: center;
+    margin-right: 40px;
+
     label{
         margin-right: 10px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        color: darkcyan;
+        color: $maincolor;
+        margin-bottom: 20px;
+        font-weight: 600;
     }
     input[type=text]{
         text-transform: uppercase;
@@ -17,5 +28,26 @@ form{
         font-weight: 600;
         color:grey;
         text-align: center;
+        padding: 15px 30px 15px 30px;
+        background: white;
     }
+    .sub{
+        padding: 0;
+        width: 120px;
+        height: 100px;
+        height: 30px;
+
+    }
+}
+
+.sounds-container{
+    display: flex;
+}
+
+.saved-sounds{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 300px;
+    border: 1px solid orange;
 }

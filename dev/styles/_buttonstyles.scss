@@ -1,0 +1,59 @@
+// Button Styles
+
+.audioTriggers{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px 0 200px 0;
+    
+}
+
+button{
+    border: 2px solid $maincolor;
+    width: 130px;
+    height: 60px;
+    color: $maincolor;
+    background: none;
+    border-radius: 10px 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 20px 10px 10px 10px;
+    box-shadow: 5px 5px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    &:hover{
+       padding-bottom: 5px;
+    }
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+// Google Sign-In Button
+
+.emailButtonContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.emailButton{
+    border: 2px solid $maincolor;
+    background: $maincolor;
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    box-shadow: none;
+}
+
+// Highlighted buttons
+.active{
+    color: goldenrod;
+    border: 2px solid goldenrod;
+}

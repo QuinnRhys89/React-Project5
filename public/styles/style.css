@@ -131,45 +131,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-body {
-  margin: 0;
-  padding: 0;
-  margin: 0 auto;
-  font-size: 96.5%;
-  font-family: 'Muli', sans-serif;
-  background-image: url("../../public/photos/topography.png"); }
-
-#app {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-bottom: 80px; }
-
-.container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 1280px;
-  width: 90%; }
-  .container h1 {
-    color: darkcyan;
-    font-weight: 300;
-    font-size: 60px;
-    text-transform: uppercase;
-    text-align: center;
-    font-family: 'Cabin Sketch', cursive;
-    padding-bottom: 20px;
-    border-bottom: 2px solid darkcyan; }
-
-.tagline {
-  text-transform: uppercase;
-  font-size: 16px;
-  color: grey;
-  letter-spacing: 1px;
-  padding: 10px 0; }
-
 .audioTriggers {
   display: flex;
   flex-wrap: wrap;
@@ -177,10 +138,10 @@ body {
   margin: 50px 0 200px 0; }
 
 button {
-  border: 2px solid darkcyan;
+  border: 2px solid #008B8B;
   width: 130px;
   height: 60px;
-  color: darkcyan;
+  color: #008B8B;
   background: none;
   border-radius: 10px 10px;
   text-transform: uppercase;
@@ -205,46 +166,33 @@ button {
   justify-content: flex-end; }
 
 .emailButton {
-  border: 2px solid darkcyan;
-  background: darkcyan;
+  border: 2px solid #008B8B;
+  background: #008B8B;
   width: 200px;
   height: 60px;
   color: #fff;
   box-shadow: none; }
-
-input[type=range] {
-  -webkit-appearance: none;
-  width: 40%;
-  margin: 12px 0; }
-
-input[type=range]:focus {
-  outline: none; }
-
-input[type=range] {
-  width: 60%;
-  height: 4px;
-  cursor: pointer;
-  background: darkcyan;
-  border-color: darkcyan; }
 
 .active {
   color: goldenrod;
   border: 2px solid goldenrod; }
 
 form {
-  border: 2px solid darkcyan;
+  border: 2px solid #008B8B;
   border-radius: 5px 5px;
   padding: 20px 20px;
   display: flex;
   flex-direction: column;
   width: 350px;
+  height: 200px;
   box-shadow: 5px 5px 10px;
-  align-items: center; }
+  align-items: center;
+  margin-right: 40px; }
   form label {
     margin-right: 10px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: darkcyan;
+    color: #008B8B;
     margin-bottom: 20px;
     font-weight: 600; }
   form input[type=text] {
@@ -264,6 +212,16 @@ form {
     width: 120px;
     height: 100px;
     height: 30px; }
+
+.sounds-container {
+  display: flex; }
+
+.saved-sounds {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  height: 300px;
+  border: 1px solid orange; }
 
 @media (max-width: 940px) {
   #app {
@@ -319,3 +277,57 @@ form {
     display: flex;
     justify-content: center;
     flex-direction: column; } }
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 40%;
+  margin: 12px 0; }
+
+input[type=range]:focus {
+  outline: none; }
+
+input[type=range] {
+  width: 60%;
+  height: 4px;
+  cursor: pointer;
+  background: #008B8B;
+  border-color: #008B8B; }
+
+body {
+  margin: 0;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 96.5%;
+  font-family: 'Muli', sans-serif;
+  background-image: url("../../public/photos/topography.png"); }
+
+#app {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 80px; }
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1280px;
+  width: 90%; }
+  .container h1 {
+    color: #008B8B;
+    font-weight: 300;
+    font-size: 60px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Cabin Sketch', cursive;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #008B8B; }
+
+.tagline {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: grey;
+  letter-spacing: 1px;
+  padding: 10px 0; }
