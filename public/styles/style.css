@@ -220,8 +220,7 @@ form {
   display: flex;
   flex-wrap: wrap;
   width: 60%;
-  height: 300px;
-  border: 1px solid orange; }
+  height: 300px; }
 
 @media (max-width: 940px) {
   #app {
