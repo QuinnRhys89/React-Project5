@@ -26,8 +26,6 @@ class App extends React.Component {
         }
 
         this.signOut = this.signOut.bind(this);
-        // this.handleChange = this.handleChange.bind(this);
-        // this.addText = this.addText.bind(this);
         this.signIn = this.signIn.bind(this);
     }
 

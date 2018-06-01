@@ -12,19 +12,16 @@ class Form extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    // myFormInput = React.createRef();
-
     nameSoundscape(e){
         // method prevents form from default behaviour of refreshing
         e.preventDefault(); 
         const nameOfSounds = {
             name: this.myFormInput.value,
         }
-        console.log(nameOfSounds);
         
         const savedSounds = Array.from(this.state.soundNameInput);
         savedSounds.push(nameOfSounds);
-        console.log(savedSounds);
+
 
         this.setState({ 
             soundNameInput: savedSounds 
@@ -36,8 +33,7 @@ class Form extends React.Component {
     }
 
     handleChange(e){
-        console.log(e);
-        
+        console.log(e);   
     }
 
     render(){
@@ -45,13 +41,13 @@ class Form extends React.Component {
             <div className="sounds-container">
                 <form action="" className="saveSoundscape" onSubmit={this.nameSoundscape}>
                     <label htmlFor="">Name your soundscape</label>
-                    <input type="text" ref={ref => this.myFormInput = ref} placeholder="Your Name Here" onChange={this.handleChange} />
-                    <input type="submit" value="submit sounds"/>
+                    <input type="text" ref={ref => this.myFormInput = ref} placeholder="Name Your Mix" onChange={this.handleChange} />
+                    <button type="submit">Submit</button>
                 </form>
                 <section className="saved-sounds">
                     {this.state.soundNameInput.map((soundName, i) => {
                         return(
-                            <SavedSound sound={soundName} key={`sound-${i}`}/>
+                            <SavedSound className="submitted" sound={soundName} key={`sound-${i}`}/>
                         )
                     }).reverse()}
                 </section>

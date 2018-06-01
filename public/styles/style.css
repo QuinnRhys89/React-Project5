@@ -222,6 +222,13 @@ form {
   width: 60%;
   height: 300px; }
 
+.submitted {
+  border: 2px solid firebrick;
+  color: firebrick; }
+
+.submitted:hover {
+  padding: 0; }
+
 @media (max-width: 940px) {
   #app {
     height: auto; }

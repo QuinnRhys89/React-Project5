@@ -83,19 +83,20 @@ class Buttons extends React.Component {
         console.log(soundName);
         const dbEmail = this.props.email ? this.props.email.replace('.', '') : null;
         var dbRef = firebase.database().ref(`${dbEmail}/${soundName}/`);
-        dbRef.set(this.state);   
+        dbRef.set(this.state);      
     }
 
     // Click event
+
     handleClick(clipID, refs) {
         const sounds = Object.assign({},this.state.sounds);
+        console.log(sounds);
         sounds[clipID] = this.state.sounds[clipID] ? false : true;
         this.setState({
             // ! just means the opposite of the initial state
             play: !this.state.play,
             sounds: sounds
         });
-
 
         let audio = document.getElementById(clipID);
         sounds[clipID] === true ? audio.play() : audio.pause();
@@ -361,24 +362,6 @@ class Buttons extends React.Component {
                         </audio>
                     </div>
                 </div>
-
-                {/* <div className="presets">
-                    <button type="submit" onClick={this.handleCamping}>
-                        Camping
-                    </button>
-
-                    <button>
-                        Cozy Indoors
-                    </button>
-
-                    <button>
-                        Meditation
-                    </button>
-
-                    <button>
-                        Random
-                    </button>
-                </div> */}
             
                 <Form handleSubmitParent={(soundName) => this.handleSubmit(soundName)} /> 
             </main>
